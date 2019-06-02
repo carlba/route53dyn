@@ -73,6 +73,10 @@ def update_dns_record(dns_name: str, ip_address: str, names: []):
 
 def monitor(dns_name, host_names):
     global last_external_ip
+
+    click.echo('Starting monitoring of monitoring of external ip changes')
+    click.echo(f'A change of external ip address will trigger an update of: {host_names}', )
+
     while True:
         current_external_ip = get_external_ip()
 
@@ -89,7 +93,7 @@ def monitor(dns_name, host_names):
 @click.argument('dns_name', envvar='ROUTE53DYN_DNS_NAME')
 @click.argument('host_names', envvar='ROUTE53DYN_HOST_NAMES')
 def main(dns_name, host_names: str):
-    """Console script for awsify."""
+    """Console script for route53dyn"""
     host_names_list = [x.strip() for x in host_names.split(',')] or [host_names]
     monitor(dns_name, host_names_list)
 

@@ -3,13 +3,13 @@
 import datetime
 import sys
 from typing import Optional
+import time
 
 import click
 import json
 from click.testing import CliRunner
 import boto3
 import requests
-import time
 
 last_external_ip: Optional[str] = None
 
@@ -86,8 +86,8 @@ def monitor(dns_name, host_names):
 
 
 @click.command()
-@click.argument('dns_name', envvar='AWSIFY_DNS_NAME')
-@click.argument('host_names', envvar='AWSIFY_HOST_NAMES')
+@click.argument('dns_name', envvar='ROUTE53DYN_DNS_NAME')
+@click.argument('host_names', envvar='ROUTE53DYN_HOST_NAMES')
 def main(dns_name, host_names: str):
     """Console script for awsify."""
     host_names_list = [x.strip() for x in host_names.split(',')] or [host_names]

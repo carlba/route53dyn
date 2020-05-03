@@ -31,4 +31,4 @@ Docker
 
     docker run -e ROUTE53DYN_DNS_NAME='dahler.se' -e ROUTE53DYN_HOST_NAMES='hassio.dahler.se' \
         -e AWS_ACCESS_KEY_ID=<AWS_ACCESS_KEY_ID> \
-        -e AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY> route53dyn
+        -e AWS_SECRET_ACCESS_KEY=<AWS_SECRET_ACCESS_KEY> carlba/route53dyn
